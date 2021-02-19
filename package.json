@@ -1,0 +1,32 @@
+{
+  "name": "psu-cli",
+  "version": "1.0.0",
+  "description": "portable psu obfuscator",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npx tsc && node dist/tests/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/concatenation/psu-portable.git"
+  },
+  "keywords": [
+    "psu",
+    "obfuscator",
+    "lua"
+  ],
+  "author": "concatenation",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/concatenation/psu-portable/issues"
+  },
+  "homepage": "https://gitlab.com/concatenation/psu-portable#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.29",
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.0"
+  }
+}

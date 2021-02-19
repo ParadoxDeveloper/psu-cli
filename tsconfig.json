@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 14",
+
+  "compilerOptions": {
+    "lib": ["ES6"],
+    "module": "commonjs",
+    "target": "ES6",
+
+    "skipLibCheck": true,
+
+    "outDir": "./dist"
+  }
+}
