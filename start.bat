@@ -1,1 +1,1 @@
-npm run start
+npx tsc && node dist

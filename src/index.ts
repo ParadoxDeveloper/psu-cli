@@ -23,7 +23,7 @@ async function obfuscate(script: string, key: string, settings: object) {
     })
     .then((r) => {
       if (r.data.data) {
-        result = r.data.toString();
+        result = r.data as object
       } else {
         result = false;
       }
@@ -33,7 +33,6 @@ async function obfuscate(script: string, key: string, settings: object) {
 
 (async () => {
   console.log(`${chalk.green("[ PSU CLI ]: ")} Initialization:`);
-  console.log(`${chalk.green(" [ PSU CLI ]: ")} Input API Key:`);
 
   const interfaceRLine = createInterface({
     input: process.stdin,
@@ -60,7 +59,7 @@ async function obfuscate(script: string, key: string, settings: object) {
           await key.then((r) => r.toString()),
           { MaxSecurityEnabled: true }
         );
-        if (data?.error) {
+        if (data?.error > 2) {
           console.log(
             `${chalk.green(
               "[ PSU CLI ]: Error:"
@@ -68,12 +67,13 @@ async function obfuscate(script: string, key: string, settings: object) {
           );
         }
         writeFile("Output.lua", data?.data);
+        setInterval(function() {}, 10000000);
       } else {
         // must be a script :sob:
         let data = await obfuscate(ans, await key.then((r) => r.toString()), {
           MaxSecurityEnabled: true,
         });
-        if (data?.error) {
+        if (data?.error > 1) {
           console.log(
             `${chalk.green(
               " [ PSU CLI ]: Error:"
@@ -81,6 +81,7 @@ async function obfuscate(script: string, key: string, settings: object) {
           );
         }
         writeFile("Output.lua", data?.data, { encoding: "utf-8" });
+        setInterval(function() {}, 10000000);
       }
     }
   );
