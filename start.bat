@@ -1,2 +1,1 @@
-npx tsc
-node dist
+npm run start
